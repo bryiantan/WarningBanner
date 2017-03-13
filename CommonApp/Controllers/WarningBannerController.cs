@@ -38,13 +38,13 @@ namespace CommonApp.Controllers
                 "policies and legislation applicable to the (your company name here) network.", LastUpdatedDate= DateTime.Now.AddDays(-30)}
         };
 
-        [HttpGet()]
-        public IEnumerable<WarningBanner> GetAllWarningBanner()
+        [HttpGet]
+        public IEnumerable<WarningBanner> Get()
         {
             return warningBanners;
         }
 
-        public IHttpActionResult GetWarningBanner(int id)
+        public IHttpActionResult Get(int id)
         {
             var banner = warningBanners.FirstOrDefault((p) => p.Id == id);
             if (banner == null)
