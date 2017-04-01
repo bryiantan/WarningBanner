@@ -37,10 +37,13 @@
     
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 
     @{
         Html.RenderPartial("~/Views/Shared/_ModalDialog.cshtml");
     }
+
+    @RenderSection("scripts", required: false)
+
+    
 </body>
 </html>

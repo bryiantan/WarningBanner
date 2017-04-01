@@ -10,7 +10,7 @@
 <input type="button" id="btn2" value="Test Bootstrap Modal - multiple button" />
 <input type="button" id="btn3" value="Test Bootstrap Modal - no button" />
 @section scripts {
-  
+
     <script type="text/javascript">
         $("#btn1").click(function () {
             $('#SharedModalDialog').ModalDialog({
@@ -28,6 +28,7 @@
             });
         });
 
+
         $("#btn2").click(function () {
             $('#SharedModalDialog').ModalDialog({
                 title: 'Test Bootstrap Dialog - multiple button',
@@ -35,6 +36,13 @@
                 CancelButtonText: 'Cancel',
                 OkButtonText: 'Yes',
                 OkClickRedirect: '/Home/Index/?test=2'
+            });
+        });
+
+        $(document).ready(function () {
+            $('#SharedModalDialog').ModalDialog({
+                title: 'Test - Page Load',
+                body: 'Display on page load !!!!'
             });
         });
     </script>
