@@ -37,9 +37,6 @@ app.controller('modalcontroller', function ($scope, $uibModal) {
 app.controller('InstanceController', function ($scope, $uibModalInstance, $http, $window, items) {
 
     $scope.items = items;
-    $scope.selected = {
-        item: $scope.items[0]
-    };
 
     $scope.ok = function () {
         
