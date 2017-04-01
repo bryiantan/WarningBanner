@@ -10,9 +10,7 @@
 <input type="button" id="btn2" value="Test Bootstrap Modal - multiple button" />
 <input type="button" id="btn3" value="Test Bootstrap Modal - no button" />
 @section scripts {
-    @{
-        Html.RenderPartial("~/Views/Shared/_ModalDialog.cshtml");
-    }
+  
     <script type="text/javascript">
         $("#btn1").click(function () {
             $('#SharedModalDialog').ModalDialog({
