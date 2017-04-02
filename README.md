@@ -8,3 +8,13 @@ Some people refer warning banner as disclaimer banner, consent screen, splash sc
 Logon Banner, Logon Notice, etc... 
 Basically, this is the page/notice that appear/display when the user first visit or logon into the application. 
 
+Here is the summary on what the reader can extract from this source code.
+
+1.	How to create warning banner using jQuery + Bootstrap 
+2.	How to create warning banner using AngularJS + AngularUI Bootstrap
+3.	How to create a simple Web API
+4.	How to call Web API from MVC Controller
+5.	How to include anti-forgery token into the AJAX POST Request
+6.	How to create reusable Modal using MVC partial view and jQuery + Bootstrap 
+7.	How to create reusable Modal using AngularJS Template + AngularUI Bootstrap
+8.	How to create an Authorization filter 
