@@ -13,7 +13,7 @@ app.controller('modalcontroller', function ($scope, $uibModal, $window) {
             controller: 'InstanceController',
             //appendTo:     //appends the modal to a element
             backdrop: false,  //disables modal closing by click on the background
-            keyboard: false,     //disables modal closing by click on the ESC key
+            keyboard: true,     //disables modal closing by click on the ESC key
             resolve: {
                 items: function () {
                     //we can send data from here to controller using resolve...
@@ -26,15 +26,10 @@ app.controller('modalcontroller', function ($scope, $uibModal, $window) {
             if (btn == "OK") {
                 $window.location.href = okClickRedirect;
             }
-            //do something on OK / Cancel button click
-        }, function () {
-            //$log.info('Modal dismissed at: ' + new Date());
-        });
-
+        }, function () { });
     };
 });
 app.controller('InstanceController', function ($scope, $uibModalInstance, $sce, items) {
-
     $scope.items = items;
     $scope.title = $scope.items[0];
     $scope.body = $scope.items[1];
