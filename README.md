@@ -18,3 +18,5 @@ Here is the summary on what the reader can extract from this source code.
 6.	How to create reusable Modal using MVC partial view and jQuery + Bootstrap 
 7.	How to create reusable Modal using AngularJS Template + AngularUI Bootstrap
 8.	How to create an Authorization filter 
+
+[See this script in action](/home/index#.WOG0EqK2ncs)
