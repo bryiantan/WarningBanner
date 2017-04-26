@@ -1,4 +1,5 @@
-﻿using CommonApp.Models;
+﻿using CommonApp.Attribute;
+using CommonApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,12 @@ using System.Web.Http;
 
 namespace CommonApp.Controllers
 {
+    public class Dummy
+    {
+        public int Id { get; set; }
+    }
+
+    [RoutePrefix("api/warningbanner")]
     public class WarningBannerController : ApiController
     {
         IList<WarningBanner> warningBanners = new List<WarningBanner>
@@ -39,14 +46,35 @@ namespace CommonApp.Controllers
         };
 
         [HttpGet]
+        [Route("")]
         public IEnumerable<WarningBanner> Get()
         {
             return warningBanners;
         }
 
+        [Route("{id}")]
         public IHttpActionResult Get(int id)
         {
             var banner = warningBanners.FirstOrDefault((p) => p.Id == id);
+            if (banner == null)
+            {
+                return NotFound();
+            }
+            return Ok(banner);
+        }
+
+        /// <summary>
+        /// Get content using POST method
+        /// </summary>
+        /// <param name="mid"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SomeGetPost")]
+        [AjaxValidateAntiForgeryToken]     
+        public IHttpActionResult SomeGetPost(Dummy dummy)
+        {
+           // return Ok("abc");
+            var banner = warningBanners.FirstOrDefault((p) => p.Id == dummy.Id);
             if (banner == null)
             {
                 return NotFound();

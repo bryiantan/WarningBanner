@@ -5,10 +5,14 @@
 <h1>ASP.NET MVC Test Modal Dialog - Multiple modal in one page</h1>
 
 <p>This page demonstrate a reuseable bootstrap modal. The modal is in a partial view + jQuery plugin to interface with the modal </p>
+@{ Html.RenderPartial("~/Views/Shared/_AntiforgeryToken.cshtml"); }
 
-<input type="button" id="btn1" value="Test Bootstrap Modal - OK button/Redirect" />
-<input type="button" id="btn2" value="Test Bootstrap Modal - multiple button" />
-<input type="button" id="btn3" value="Test Bootstrap Modal - no button" />
+<input type="button" id="btn1" value="Test Bootstrap Modal - OK button/Redirect" /> <br/>
+<input type="button" id="btn2" value="Test Bootstrap Modal - multiple button" /><br />
+<input type="button" id="btn3" value="Test Bootstrap Modal - no button" /><br /><br />
+
+<input type="button" id="btn4" value="AJAX Get content from Web API" /><br />
+<input type="button" id="btn5" value="AJAX Get content from Web API using POST" />
 @section scripts {
 
     <script type="text/javascript">
@@ -38,6 +42,56 @@
                 OkClickRedirect: '/Home/Index/?test=2'
             });
         });
+
+        $("#btn4").click(function () {
+            $.ajax({
+                url: "http://localhost:47503/api/warningbanner/1",
+                type: "Get",
+                success: function (data) {
+                    $('.modal-body').html(data.Content);
+
+                    $('#SharedModalDialog').ModalDialog({
+                        title: 'Content from Web API',
+                        body: data.Content
+                    });
+                },
+                error: function (msg) { alert(msg); }
+            });
+        });
+
+        $("#btn5").click(function () {
+
+            var Dummy = {
+                "Id": 2
+            };
+
+            $.ajax({
+                url: "http://localhost:47503/api/warningbanner/SomeGetPost",
+                type: "POST",
+                data: JSON.stringify(Dummy),
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                cache: false,
+                beforeSend: function (xhr) { xhr.setRequestHeader('RequestVerificationToken', $("#antiForgeryToken").val()); },
+                headers: {
+                    Accept: "application/json;charset=utf-8",
+                    "Content-Type": "application/json;charset=utf-8"
+                },
+                accepts: {
+                    text: "application/json"
+                },
+                success: function (data) {
+                    $('.modal-body').html(data.Content);
+
+                    $('#SharedModalDialog').ModalDialog({
+                        title: 'Content from Web API using POST',
+                        body: data.Content
+                    });
+                },
+                error: function (msg) { alert(msg); }
+            });
+        });
+
 
         $(document).ready(function () {
             $('#SharedModalDialog').ModalDialog({
