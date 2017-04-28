@@ -18,5 +18,9 @@ Here is the summary on what the reader can extract from this source code.
 6.	How to create reusable Modal using MVC partial view and jQuery + Bootstrap 
 7.	How to create reusable Modal using AngularJS Template + AngularUI Bootstrap
 8.	How to create an Authorization filter 
+9.  Enabling Cross-Origin Requests (CORS) in Global.asax file
+10. Enabling Cross-Origin Requests (CORS) for more than one URL
+11. Include Anti-Forgery token in the Ajax POST method during the Web API call
+
 
 [See this script in action](/home/index#.WOG0EqK2ncs)
